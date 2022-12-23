@@ -47,5 +47,47 @@ for (i = 0; i < 7; i++) {
 }
 
 document.addEventListener("keydown", function() {
-    console.log(event);
+    //the "event.key" registers what key in the keyboard was pressed in the event that a key was pressed 
+    //it is then passed as a specific variable
+    var keyPressed = event.key;
+    switch (keyPressed) {
+            case "w":
+                var crash = new Audio("sounds/crash.mp3");
+                crash.play();            
+                break;
+
+            case "a":
+                var kickbass = new Audio("sounds/kick-bass.mp3");
+                kickbass.play();            
+                break;
+
+            case "s":
+                var snare = new Audio("sounds/snare.mp3");
+                snare.play();            
+                break;
+
+            case "d":
+                var tom1 = new Audio("sounds/tom-1.mp3");
+                tom1.play();            
+                break;
+
+            case "j":
+                var tom2 = new Audio("sounds/tom-2.mp3");
+                tom2.play();            
+                break;
+
+            case "k":
+                var tom3 = new Audio("sounds/tom-3.mp3");
+                tom3.play();            
+                break;
+
+            case "l":
+                var tom4 = new Audio("sounds/tom-4.mp3");
+                tom4.play();            
+                break;
+
+            default:
+                console.log(keyPressed);
+        }
 })
+
