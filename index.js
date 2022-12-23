@@ -1,18 +1,34 @@
-
+//this is for detecting clicks; it registers clicks and then calls the function to trigger sounds  
 for (i = 0; i < 7; i++) {
     document.querySelectorAll("div.set button")[i].addEventListener("click", function() {
         var drumButton = this.innerHTML;
-        audioResponse(drumButton);
+        clickResponse(drumButton);
     }
     )
 }
 
+//this is for detecting keys; it registers them and then calls the function to trigger sounds
 document.addEventListener("keydown", function() {
     //the "event.key" registers what key in the keyboard was pressed in the event that a key was pressed 
     //it is then passed as a specific variable
     var keyPressed = event.key;
-    audioResponse(keyPressed)
-})
+    clickResponse(keyPressed);
+}
+)
+
+function clickResponse(click) {
+    audioResponse(click);
+    visualResponse(click);
+}
+
+//this is for triggering a visual response (changing class to one of the buttons being pressed)
+function visualResponse(click) {
+    var drumButton = click;
+    document.querySelector("." + drumButton).classList.add("pressed");
+    setTimeout(function() {
+        document.querySelector("." + drumButton).classList.remove("pressed");
+    }, 200);    
+}
 
 function audioResponse(click) {
     var drumButton = click;
